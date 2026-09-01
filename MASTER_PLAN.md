@@ -138,15 +138,14 @@ usdcad-macro-xgboost/
 ├── POSITIONING.md                  (marketing across lanes)
 ├── STRATEGIC_RATIONALE.md          (passion vs prospects, time cap)
 ├── READING_LIST.md                 (verified citations)
-├── NOTEBOOKLM_PACK.md              (NotebookLM setup)
 ├── requirements.txt
 ├── .gitignore
 ├── docs/
-│   ├── fx_primer_TEMPLATE.md
-│   ├── xgboost_notes_TEMPLATE.md
-│   ├── lp_irf_notes_TEMPLATE.md    (Stage 4)
-│   ├── macro_finance_note.md       (Stage 1 deliverable, write yourself)
-│   └── findings.md                 (Stage 3 deliverable, write yourself)
+│   ├── fx_primer.md
+│   ├── xgboost_notes.md
+│   ├── lp_irf_notes.md             (Stage 4)
+│   ├── macro_finance_note.md       (Stage 1 deliverable)
+│   └── findings.md                 (Stage 3 deliverable)
 ├── src/
 │   ├── __init__.py
 │   ├── data.py                     (Stage 1)

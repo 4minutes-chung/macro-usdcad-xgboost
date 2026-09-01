@@ -1,6 +1,6 @@
 # Learning Guide: Tuning and Interpretation
 
-The pedagogical walkthrough for Stage 3. What you actually learn, in what order, and where each piece lives in this repo. Read this alongside `docs/xgboost_notes_TEMPLATE.md` (the fill-in study artifact). This file is the "why and in what order"; the template is the "write it down yourself."
+The pedagogical walkthrough for Stage 3. What you actually learn, in what order, and where each piece lives in this repo. Read this alongside `docs/xgboost_notes.md`. This file is the "why and in what order"; the notes are the write-up.
 
 ---
 
@@ -133,7 +133,7 @@ The difference is that the good version names the validation choice, the benchma
 
 | Learning item | Lives in |
 |---|---|
-| Hyperparameter table + theory | `docs/xgboost_notes_TEMPLATE.md` |
+| Hyperparameter table + theory | `docs/xgboost_notes.md` |
 | Three-pass tuning (manual, random, Optuna). Untuned baseline was planned and is not in the shipped tables | `scripts/05_xgboost_tuning.py` |
 | Time-series split | `src/features.py` |
 | Rolling correlation (Rung 1) | `scripts/03_eda.py`, `src/plots.py` |
