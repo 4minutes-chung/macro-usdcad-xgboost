@@ -1,34 +1,27 @@
-# USD/CAD Macro-Financial Forecasting
+# USD/CAD one week ahead
 
-Public archive: https://github.com/4minutes-chung/macro-usdcad-xgboost
+Do oil prices, Canada-US interest differentials, and risk sentiment forecast next-week USD/CAD, or does a random walk still win?
 
-**Status: CLOSED-ARCHIVED (2026-07-31).** Frozen forecasting specification. Not a trading model.
+Weekly Friday closes, 2005-2026. FRED, Bank of Canada, and Statistics Canada. Expanding-window evaluation: train 2005-2016, validate 2017-2019, evaluate 2020-2026.
 
-Stage-gated test of whether oil, Canada-US rate differentials, and risk sentiment forecast USD/CAD one week ahead. Walk-forward validation. Random walk, AR(1), Ridge, then tuned XGBoost. Optional local projections.
+## Results
 
-## Result
-
-Random walk wins. Macro factors explain same-week USD/CAD better than they forecast next week.
-
-| Model | RMSE | MAE | OOS R² vs RW | Dir acc |
+| Model | RMSE | MAE | OOS R² vs RW | Direction |
 |---|---:|---:|---:|---|
-| Random walk | 0.00866 | 0.00657 | 0.00000 | n/a |
-| AR(1) | 0.00867 | 0.00659 | -0.00256 | 0.483 |
-| Ridge | 0.00886 | 0.00666 | -0.04783 | 0.554 |
-| Tuned XGBoost | 0.00866 | 0.00657 | 0.00031 | 0.498 |
+| Random walk | 0.00866 | 0.00657 | 0.000 | n/a |
+| AR(1) | 0.00867 | 0.00659 | -0.003 | 0.483 |
+| Ridge | 0.00886 | 0.00666 | -0.048 | 0.554 |
+| XGBoost | 0.00866 | 0.00657 | 0.000 | 0.498 |
 
-- Tuned XGBoost is intercept-only: no tree splits, so gain, weight, cover, permutation, and SHAP are all zero.
-- 1-week direction: Elastic Net balanced accuracy 0.544; Logistic Brier 0.249. HAC tests of Brier gains vs the historical base rate are unresolved (`p = 0.629` and `0.375`).
-- 4-week: historical base rate still has the best Brier and log loss.
-- LP horizon-0 signs match priors (WTI and CA-US 2Y spread lower USD/CAD; VIX raises it). Identification is weak AR(1) innovations. Descriptive, not causal.
+Same-week WTI, NASDAQ, and VIX move with USD/CAD in the expected direction. Next-week returns do not. Random walk has the lowest RMSE. Ridge is worse on squared error even though its sign calls are above one half.
 
-Full write-up: `docs/findings.md`. Citations: `docs/READING_LIST.md`.
+The selected XGBoost model never splits, so gain, cover, permutation importance, and SHAP are all zero. The 0.00031 OOS R² versus random walk is an intercept, not a feature effect.
 
-## Design
+On one-week direction, Elastic Net balanced accuracy is 0.544 and Logistic Brier score is 0.249. Those Brier gains versus the historical base rate are not distinguishable from zero (HAC \(p = 0.629\) and \(0.375\)). At four weeks the base rate still has the better Brier score and log loss.
 
-- Weekly Friday close, 2005-2026, data capped at 2026-04-30. FRED + BoC Valet + Statistics Canada. Dictionary: `data/DATA_DICTIONARY.md`.
-- Train 2005-2016 / val 2017-2019 / test 2020-2026. Test set touched once. Expanding-window CV. No random k-fold.
-- At most 12 features. No neural nets. No PCA.
+Local projections at horizon 0 have the expected signs: a WTI shock and a wider Canadian 2-year spread lower USD/CAD; a VIX shock raises it. The shocks are AR(1) residuals, so the IRFs are reduced-form associations.
+
+Write-up: [`docs/findings.md`](docs/findings.md). Sources: [`docs/READING_LIST.md`](docs/READING_LIST.md).
 
 ## Reproduce
 
@@ -47,27 +40,16 @@ conda run -n base python scripts/09_tune_one_week_direction.py
 conda run -n base python -m pytest tests/ -q
 ```
 
-Raw and processed parquet files are in `data/`. Re-running collection overwrites them under the same date cap.
-
-## Limits
-
-- 1-week FX is a hard horizon (Meese-Rogoff / Rossi 2013).
-- About 1,100 weekly observations.
-- Full-sample equity risk uses `NASDAQCOM` because FRED `SP500` daily history is short.
-- Direction extension uses a 1-year yield spread as a policy-path proxy, not a surprise series.
-- This archive does not reopen. Continuation would need a new repo, a named dataset, and an hour count.
+Data end on 2026-04-30. Equity risk uses `NASDAQCOM` because FRED's daily `SP500` history is short.
 
 ## Layout
 
 ```
-src/        data, features, evaluation, interpretation, plots, LP
-scripts/    stage entry points 01-09
-docs/       findings, notes, run log
-data/       raw + processed parquet + dictionary
-outputs/    figures, tables, xgb_final.json
-tests/      direction-classification checks
+src/      data, features, evaluation, interpretation, plots, local projections
+scripts/  01-09
+docs/     findings and notes
+data/     parquet and dictionary
+outputs/  figures and tables
 ```
-
-## Author
 
 Steven Chung, MA Economics, University of Toronto.
