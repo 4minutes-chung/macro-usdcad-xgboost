@@ -1,5 +1,7 @@
 # USD/CAD Macro-Financial Forecasting
 
+Public archive: https://github.com/4minutes-chung/macro-usdcad-xgboost
+
 **Status: CLOSED-ARCHIVED (2026-07-31).** Frozen forecasting specification. Not a trading model.
 
 Stage-gated test of whether oil, Canada-US rate differentials, and risk sentiment forecast USD/CAD one week ahead. Walk-forward validation. Random walk, AR(1), Ridge, then tuned XGBoost. Optional local projections.
