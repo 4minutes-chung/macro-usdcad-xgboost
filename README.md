@@ -22,7 +22,7 @@ Random walk wins. Macro factors explain same-week USD/CAD better than they forec
 - 4-week: historical base rate still has the best Brier and log loss.
 - LP horizon-0 signs match priors (WTI and CA-US 2Y spread lower USD/CAD; VIX raises it). Identification is weak AR(1) innovations. Descriptive, not causal.
 
-Full write-up: `docs/findings.md`. Interview claims: `POSITIONING.md`.
+Full write-up: `docs/findings.md`. Citations: `docs/READING_LIST.md`.
 
 ## Design
 
