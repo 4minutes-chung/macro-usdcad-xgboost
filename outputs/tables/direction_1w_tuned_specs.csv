@@ -1,0 +1,4 @@
+candidate_id,model,feature_set,params,validation_start,validation_end,n_validation,threshold,balanced_accuracy,brier_score,log_loss,probability_std,selected
+7,ElasticNet,core,"{""C"": 0.003, ""l1_ratio"": 0.75}",2017-01-06,2019-12-27,156,0.49,0.5384615384615384,0.2496431089798915,0.6924378343194777,0.012564329387238237,True
+1,Logistic,core,"{""C"": 0.001}",2017-01-06,2019-12-27,156,0.5,0.5,0.25134018607230885,0.6958324683293182,0.005853583598045632,True
+52,XGBoost,extended,"{""colsample_bytree"": 0.8, ""learning_rate"": 0.03, ""max_depth"": 1, ""min_child_weight"": 20, ""n_estimators"": 40, ""reg_alpha"": 0.1, ""reg_lambda"": 20.0, ""subsample"": 0.8}",2017-01-06,2019-12-27,156,0.51,0.5,0.25279978146856463,0.698771408240996,0.01796482020061671,True

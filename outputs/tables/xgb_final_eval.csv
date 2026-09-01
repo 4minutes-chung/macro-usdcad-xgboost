@@ -1,0 +1,2 @@
+model,rmse,mae,oos_r2_vs_rw,dir_acc,bal_dir_acc
+XGBoost,0.00866,0.00657,0.00031,0.49847,0.5

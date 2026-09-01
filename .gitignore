@@ -1,0 +1,17 @@
+.DS_Store
+**/.DS_Store
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+.env
+.env.*
+*.egg-info/
+.coverage
+htmlcov/
+
+# Local planning dump, not a research artifact
+ChatGPT-Macro Markets Catch-Up.md

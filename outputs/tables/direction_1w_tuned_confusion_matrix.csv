@@ -1,0 +1,17 @@
+horizon,model,threshold,true_direction,predicted_direction,count
+1w,HistoricalBaseRate,0.5,down,down,166
+1w,HistoricalBaseRate,0.5,down,up,0
+1w,HistoricalBaseRate,0.5,up,down,163
+1w,HistoricalBaseRate,0.5,up,up,0
+1w,ElasticNet,0.49,down,down,100
+1w,ElasticNet,0.49,down,up,66
+1w,ElasticNet,0.49,up,down,104
+1w,ElasticNet,0.49,up,up,59
+1w,Logistic,0.5,down,down,158
+1w,Logistic,0.5,down,up,8
+1w,Logistic,0.5,up,down,155
+1w,Logistic,0.5,up,up,8
+1w,XGBoost,0.51,down,down,150
+1w,XGBoost,0.51,down,up,16
+1w,XGBoost,0.51,up,down,136
+1w,XGBoost,0.51,up,up,27

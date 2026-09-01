@@ -1,0 +1,10 @@
+max_depth,eta,subsample,colsample_bytree,reg_lambda,objective,verbosity,cv_rmse
+2,0.03,0.8,0.8,1.0,reg:squarederror,0,0.014030350922233556
+2,0.05,0.8,0.8,1.0,reg:squarederror,0,0.014264282412090119
+2,0.1,0.8,0.8,1.0,reg:squarederror,0,0.014471531501341455
+3,0.03,0.8,0.8,1.0,reg:squarederror,0,0.014115049469698198
+3,0.05,0.8,0.8,1.0,reg:squarederror,0,0.01426341226450827
+3,0.1,0.8,0.8,1.0,reg:squarederror,0,0.014567819636747545
+4,0.03,0.8,0.8,1.0,reg:squarederror,0,0.014032328608360631
+4,0.05,0.8,0.8,1.0,reg:squarederror,0,0.014202643104861565
+4,0.1,0.8,0.8,1.0,reg:squarederror,0,0.014564207883271254

@@ -1,0 +1,13 @@
+feature,coefficient,prior_sign,sign_matches_prior
+spread_2y,0.0024671130147900975,negative under capital flow; positive under UIP,mixed prior
+spread_10y,-0.002138065151716084,negative under capital flow; positive under UIP,mixed prior
+vol_usdcad_8w,0.0012402422845485448,ambiguous,n/a
+r_usdcad,-0.0012206457261988856,ambiguous (momentum vs reversal),n/a
+r_equity,-0.0009072844197754311,negative (risk-on -> CAD up),yes
+vol_usdcad_4w,-0.0005524222186849217,ambiguous,n/a
+r_wti,-0.0005275566407950212,negative,yes
+vix,-0.00042400392028310693,positive (risk-off -> USD),no
+vol_wti_8w,0.00027336098308257796,ambiguous,n/a
+d_vix,0.00026485060572181674,positive,yes
+d_spread_2y,-0.00026308145244754744,same direction as level,mixed prior
+vol_wti_4w,-0.0001528595781602835,ambiguous,n/a
